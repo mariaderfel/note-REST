@@ -1,49 +1,45 @@
 package com.github.mariaderfel.note.note;
 
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(name = "note")
 public class NoteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Type(type = "uuid-char")
-    private UUID id;
+    private Long id;
     private String title;
     private String type;
     private String text;
-    private String key;
+    private String noteKey;
     private LocalDateTime created;
 
     public NoteEntity() {
     }
 
-    public NoteEntity(UUID id, String title, String type, String text, String key, LocalDateTime created) {
+    public NoteEntity(Long id, String title, String type, String text, String noteKey, LocalDateTime created) {
         this.id = id;
         this.title = title;
         this.type = type;
         this.text = text;
-        this.key = key;
+        this.noteKey = noteKey;
         this.created = created;
     }
 
-    public NoteEntity(String title, String type, String text, String key, LocalDateTime created) {
+    public NoteEntity(String title, String type, String text, String noteKey, LocalDateTime created) {
         this.title = title;
         this.type = type;
         this.text = text;
-        this.key = key;
+        this.noteKey = noteKey;
         this.created = created;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -71,12 +67,12 @@ public class NoteEntity {
         this.text = text;
     }
 
-    public String getKey() {
-        return key;
+    public String getNoteKey() {
+        return noteKey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setNoteKey(String key) {
+        this.noteKey = key;
     }
 
     public LocalDateTime getCreated() {

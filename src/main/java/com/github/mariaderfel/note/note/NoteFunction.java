@@ -9,7 +9,7 @@ public class NoteFunction {
             noteEntity.getTitle(),
             noteEntity.getType(),
             noteEntity.getText(),
-            noteEntity.getKey(),
+            noteEntity.getNoteKey(),
             noteEntity.getCreated()
     );
 
@@ -17,7 +17,7 @@ public class NoteFunction {
             noteDto.getTitle(),
             noteDto.getType(),
             noteDto.getText(),
-            noteDto.getKey(),
+            noteDto.getNoteKey(),
             noteDto.getCreated()
     );
 

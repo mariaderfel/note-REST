@@ -4,10 +4,9 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class NoteDto {
-    private UUID id;
+    private Long id;
     @NotBlank(message = "Please, write title")
     @Length(max = 50)
     private String title;
@@ -17,26 +16,26 @@ public class NoteDto {
     @NotBlank(message = "Please, write text")
     @Length(max = 200)
     private String text;
-    private String key;
+    private String noteKey;
     private LocalDateTime created;
 
     public NoteDto() {
     }
 
-    public NoteDto(UUID id, String title, String type, String text, String key, LocalDateTime created) {
+    public NoteDto(Long id, String title, String type, String text, String noteKey, LocalDateTime created) {
         this.id = id;
         this.title = title;
         this.type = type;
         this.text = text;
-        this.key = key;
+        this.noteKey = noteKey;
         this.created = created;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -64,12 +63,12 @@ public class NoteDto {
         this.text = text;
     }
 
-    public String getKey() {
-        return key;
+    public String getNoteKey() {
+        return noteKey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setNoteKey(String noteKey) {
+        this.noteKey = noteKey;
     }
 
     public LocalDateTime getCreated() {
