@@ -26,8 +26,8 @@ public class NoteService {
 
     public NoteId addNote(NoteDto noteDto) {
         NoteId noteId = new NoteId();
+        noteDto.setCreated(LocalDateTime.now());
         NoteEntity noteEntity = noteDtoToNoteEntity.apply(noteDto);
-        noteEntity.setCreated(LocalDateTime.now());
         NoteEntity savedNote = noteRepository.save(noteEntity);
         noteId.setId(savedNote.getId());
         return noteId;
