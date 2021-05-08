@@ -20,5 +20,4 @@ public class NoteFunction {
             noteDto.getNoteKey(),
             noteDto.getCreated()
     );
-
 }

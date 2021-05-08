@@ -46,5 +46,4 @@ public class NoteService {
     public Optional<NoteEntity> findNoteById(NoteId noteId) {
         return noteRepository.findById(noteId.getId());
     }
-
 }
