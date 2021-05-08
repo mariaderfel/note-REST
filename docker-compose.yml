@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  db:
+    image: mariadb
+    ports:
+    - "3306:3306"
+    environment:
+      mariade_database: textNote
+      mariade_user: root
+
+  note-REST:
+    build:
+      context: .
+      dockerfile: Dockerfile-app
+    ports:
+    - "8080:8080"
+    environment:
+      spring.datasource.url=jdbc:mariadb://localhost:3306/textNote
+      spring.datasource.username=root
+    depends_on:
+      - db
+
