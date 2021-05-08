@@ -18,7 +18,6 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,9 +28,6 @@ public class NoteServiceTest {
     private static NoteKey noExistNoteKey = new NoteKey();
     private static NoteId existNoteId = new NoteId();
     private static NoteId noExistNoteId = new NoteId();
-//    private static NoteEntity newNote = new NoteEntity(10l,"nowa ważna notatka", "nowe spotkanie", "omówienie nowego projektu", "qwe", LocalDateTime.now());
-//    private static NoteEntity newNoteReturn = new NoteEntity(10l,"nowa ważna notatka", "nowe spotkanie", "omówienie nowego projektu", "qwe", LocalDateTime.now());
-//    private static NoteDto noteDto = new NoteDto(10l, "nowa ważna notatka", "nowe spotkanie", "omówienie nowego projektu", "qwe", LocalDateTime.now());
 
     @Mock
     private NoteRepository noteRepository;
@@ -40,17 +36,15 @@ public class NoteServiceTest {
 
     @BeforeAll
     public static void setUp() {
-        noteEntities.add(new NoteEntity(1l, "ważna notatka1", "spotkanie", "omówienie projektu1", "qwe", LocalDateTime.now().minusDays(2)));
-        noteEntities.add(new NoteEntity(2l, "ważna notatka2", "spotkanie", "omówienie projektu2", "asd", LocalDateTime.now().minusDays(1)));
-        noteEntities.add(new NoteEntity(3l, "ważna notatka3", "spotkanie", "omówienie projektu3", "qwe", LocalDateTime.now()));
-        noteEntities.add(new NoteEntity(4l, "ważna notatka4", "spotkanie", "omówienie projektu4", "dfg", LocalDateTime.now().minusDays(7)));
-        noteEntities.add(new NoteEntity(5l, "ważna notatka5", "spotkanie", "omówienie projektu5", "qwe", LocalDateTime.now().minusDays(3)));
-
+        noteEntities.add(new NoteEntity(1L, "ważna notatka1", "spotkanie", "omówienie projektu1", "qwe", LocalDateTime.now().minusDays(2)));
+        noteEntities.add(new NoteEntity(2L, "ważna notatka2", "spotkanie", "omówienie projektu2", "asd", LocalDateTime.now().minusDays(1)));
+        noteEntities.add(new NoteEntity(3L, "ważna notatka3", "spotkanie", "omówienie projektu3", "qwe", LocalDateTime.now()));
+        noteEntities.add(new NoteEntity(4L, "ważna notatka4", "spotkanie", "omówienie projektu4", "dfg", LocalDateTime.now().minusDays(7)));
+        noteEntities.add(new NoteEntity(5L, "ważna notatka5", "spotkanie", "omówienie projektu5", "qwe", LocalDateTime.now().minusDays(3)));
         existNoteKey.setNoteKey("qwe");
         noExistNoteKey.setNoteKey("ghj");
-
-        existNoteId.setId(3l);
-        noExistNoteId.setId(25l);
+        existNoteId.setId(3L);
+        noExistNoteId.setId(25L);
     }
 
     @AfterAll
@@ -65,8 +59,8 @@ public class NoteServiceTest {
     @Test
     public void testIfAddNote() {
         //given
-        NoteEntity newNote = new NoteEntity(10l, "nowa ważna notatka", "nowe spotkanie", "omówienie nowego projektu", "qwe", LocalDateTime.now());
-        NoteDto noteDto = new NoteDto(10l, "nowa ważna notatka", "nowe spotkanie", "omówienie nowego projektu", "qwe", LocalDateTime.now());
+        NoteEntity newNote = new NoteEntity(10L, "nowa ważna notatka", "nowe spotkanie", "omówienie nowego projektu", "qwe", LocalDateTime.now());
+        NoteDto noteDto = new NoteDto(10L, "nowa ważna notatka", "nowe spotkanie", "omówienie nowego projektu", "qwe", LocalDateTime.now());
         when(noteRepository.save(any())).thenReturn(newNote);
 
         //when
