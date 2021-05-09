@@ -10,17 +10,3 @@ services:
     ports:
       - "3306:3306"
 
-#  note-rest:
-#    build:
-#      dockerfile: Dockerfile
-#      context: .
-#    ports:
-#      - "8080:8080"
-#    depends_on:
-#      - db
-#    environment:
-#      spring_datasource_url: jdbc:mysql://localhost:3306/textNote?createDatabaseIfNotExist=true&serverTimezone=UTC&useLegacyDatetimeCode=false
-#      spring_datasource_username: root
-#      spring_datasource_password: toor
-
-
