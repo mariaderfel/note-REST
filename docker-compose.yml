@@ -2,25 +2,25 @@ version: '3.8'
 services:
   db:
     image: mysql
-    ports:
-    - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: toor
       mysql_database: textNote
       mysql_user: root
       mysql_password: toor
-
-  note-rest:
-    build:
-      dockerfile: Dockerfile
-      context: .
     ports:
-    - "8080:8080"
-    depends_on:
-      - db
-    environment:
-      spring_datasource_url: jdbc:mysql://localhost:3306/textNote?createDatabaseIfNotExist=true&serverTimezone=UTC&useLegacyDatetimeCode=false
-      spring_datasource_username: root
-      spring_datasource_password: toor
+      - "3306:3306"
+
+#  note-rest:
+#    build:
+#      dockerfile: Dockerfile
+#      context: .
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - db
+#    environment:
+#      spring_datasource_url: jdbc:mysql://localhost:3306/textNote?createDatabaseIfNotExist=true&serverTimezone=UTC&useLegacyDatetimeCode=false
+#      spring_datasource_username: root
+#      spring_datasource_password: toor
 
 
